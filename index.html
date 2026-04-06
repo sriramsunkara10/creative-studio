@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Creative Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🎨 Creative Studio</h1>
+
+  <div class="main-content">
+    <div class="studio-area">
+
+      <div class="controls">
+        <label>Mode</label>
+        <select id="mode">
+          <option value="2d">2D Drawing</option>
+          <option value="3d">3D Modeling</option>
+        </select>
+
+        <!-- 2D -->
+        <div id="drawing-controls">
+          <div class="control-row">
+            <div>
+              <label for="colorPicker">Brush Color</label>
+              <input type="color" id="colorPicker" value="#000000">
+            </div>
+            <div>
+              <label for="brushSize">Brush Size</label>
+              <input type="range" id="brushSize" min="1" max="50" value="5">
+            </div>
+          </div>
+          <div class="control-row palette-row">
+            <button class="palette-swatch" data-color="#000000" style="background:#000000"></button>
+            <button class="palette-swatch" data-color="#ff4757" style="background:#ff4757"></button>
+            <button class="palette-swatch" data-color="#1e90ff" style="background:#1e90ff"></button>
+            <button class="palette-swatch" data-color="#2ed573" style="background:#2ed573"></button>
+            <button class="palette-swatch" data-color="#f7b731" style="background:#f7b731"></button>
+            <button class="palette-swatch" data-color="#ffffff" style="background:#ffffff; border: 1px solid #ccc"></button>
+          </div>
+          <div class="control-row">
+            <button id="clearBtn">Clear</button>
+            <button id="undoBtn">Undo</button>
+            <button id="redoBtn">Redo</button>
+            <button id="eraserBtn">Eraser</button>
+            <button id="saveBtn">Save</button>
+          </div>
+        </div>
+
+        <!-- 3D -->
+        <div id="modeling-controls" style="display:none;">
+          <div class="control-row">
+            <div>
+              <label for="modelColorPicker">Color</label>
+              <input type="color" id="modelColorPicker" value="#00ff00">
+            </div>
+            <div>
+              <label for="shape">Shape</label>
+              <select id="shape">
+                <option value="box">Cube</option>
+                <option value="sphere">Sphere</option>
+                <option value="torus">Torus</option>
+              </select>
+            </div>
+            <div>
+              <label for="scale">Scale</label>
+              <input type="range" id="scale" min="0.5" max="2" step="0.1" value="1">
+            </div>
+          </div>
+          <div class="hint">Rotate the model by dragging the view. Only one object is shown here for simplicity.</div>
+        </div>
+      </div>
+
+      <canvas id="canvas"></canvas>
+      <div id="canvas-container"></div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
